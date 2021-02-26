@@ -258,14 +258,6 @@
 <script>
 	textfit();
 $(window).on('resize', textfit);
-let doc = new jsPDF('p','mm','letter');
-    doc.addHTML(document.body,function() {
-    doc.save(myParam1+'.html');
-    window.close();
-});
-
-
-
 
 
 function textfit() {
