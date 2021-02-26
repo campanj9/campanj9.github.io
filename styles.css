@@ -63,7 +63,7 @@ body{
 
 		height:65px;
 		width:550px;
-		
+		background-color: #ffffd9;
 		border: 2px solid black;
 		position: relative;
         left:20px;
@@ -142,7 +142,19 @@ body{
 	}
 
 
+	@media print {
+    div.inputBox1 {
+        background-color: #ffffd9  !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
 
+	@media print {
+    div.inputBox2 {
+        background-color: #ffffd9  !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
 
 
 @media print {
