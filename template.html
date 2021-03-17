@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="styles.css">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jsPDF/dist/jspdf.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+	<title id="signs">
+    
+	</title>
+
+	<script>
+
+
+		var retreivedData1 = localStorage.getItem("Descriptions");
+		var retreivedData2 = localStorage.getItem("AisleNumbers");
+		var retreivedData3 = localStorage.getItem("Locations");
+		var retreivedSigns = localStorage.getItem("Signs");
+		var signs = retreivedSigns;
+		
+		var desc = JSON.parse(retreivedData1);
+		var nums = JSON.parse(retreivedData2);
+		var locs = JSON.parse(retreivedData3);
+
+	</script>
+
+</head>
+
+<body>
+
+
+<div class="content" id="pages">
+</div>
+
+
+</body>
+
+
+<script> 
+
+
+
+	   var i;
+		for(i = 0; i < signs; i++){
+
+			var check = i+1;
+
+			if(check % 3 == 0){
+
+				$('#pages').append('<div class="space"><div class="space"></div>' );
+
+			}
+
+			$('#pages').append('<div class="container"><div class="line1"></div> <div class="textArea"> <h1>ADDITIONAL QUANTITIES OF</h1> <div> <div class="inputBox1"> <div class="textContainer"> <span id="product" class="text-fitter" style="color:red; font-weight: bold; font-family: verdana; "></span> </div> </div> <div class="bottomText1"> <h1>ARE LOCATED AT THE <span id="location"></span></h1> </div> <div class="bottomText2"> <h1>OF AISLE NUMBER </h1> </div> <div class="inputBox2"> <div class = "loc"> <span><h2 id="aisle"></h2></span> </div> </div> </div> <div class="logo"> <img src="srlogo.png" alt="logo" /> </div><div class="line2"></div></div></div><div class="space"></div>');
+
+
+			document.getElementById("product").setAttribute("id", "product"+i);
+			document.getElementById("product"+i).innerHTML = desc[i];
+			document.getElementById("aisle").setAttribute("id", "aisle"+i);
+			document.getElementById("aisle"+i).innerHTML = nums[i];
+			document.getElementById("location").setAttribute("id", "location"+i);
+			document.getElementById("location"+i).innerHTML = locs[i];
+
+			
+
+            //checks for end of page to add spaces
+			if(check % 3 == 0){
+
+				$('#pages').append('<div class="space"><div class="space"></div>' );
+
+			}
+
+		}
+
+		localStorage.clear();
+		signs = 0;
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--auto resizes the text in input fields-->
+<script>
+	textfit();
+$(window).on('resize', textfit);
+
+
+function textfit() {
+    $('.text-fitter').css('font-size', 'medium');
+    var w1 = $('.textContainer').width()-10;
+    var w2 = $('.text-fitter').width();
+    var wRatio = Math.round(w1 / w2 * 10) / 10;
+
+    var h1 = $('.textContainer').height()-10;
+    var h2 = $('.text-fitter').height();
+    var hRatio = Math.round(h1 / h2 * 10) / 10;
+
+    var constraint = Math.min(wRatio, hRatio);
+
+    $('.text-fitter').css('font-size', constraint + 'em');
+}
+
+</script>
+
+
+
+</html>
