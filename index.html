@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+   
+
+<title>Additional Quantity Generator</title>
+
+
+<script>
+	var signs = 0;
+	var desc = [];
+	var aisle = [];
+	var loc = [];
+	var list = 1;
+</script>
+
+</head>
+
+<body>
+
+	<div class="container px-4 p-3">
+		<div class="row g3 align-items-center p-3">
+		<div class="col-auto">
+			<img class="mb-4" src="srlogo.png" alt="logo" width="145" height="120">
+		</div>
+		<div class="col-8">
+			&nbsp;
+			&nbsp;
+			<h1>Additional Quantity Generator</h1>
+		</div>
+	</div>
+	</div>
+
+
+
+
+   		
+
+   <form id="myForm" class="container px-4 p-3 border bg-light rounded shadow">
+   	<div class="row g3 align-items-center">
+   	<div class="col-auto">
+   	<div class="form-check form-check-inline">
+	<input class="form-check-input" type="radio" name="inlineRadioOptions" id="front" checked>
+  		<label class="form-check-label" for="location">Front</label>
+  	</div>
+  	<div class="form-check form-check-inline">
+  		  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="back">
+ 		  <label class="form-check-label" for="location">Back</label>
+  	</div>
+  	</div>
+		<div class="col-md-6">
+			   <label for="inputProduct" class="visually-hidden">Product</label>
+    			<input type="text" name="prod" id="inputProduct" class="form-control" placeholder="Product" required autofocus>
+	    </div>
+	    <div class="col-md-2">
+    		<label for="inputAisle" class="visually-hidden">Aisle Number</label>
+    		<input type="number" min="1" max="30" name ="num" id="inputAisle" class="form-control" placeholder="Aisle Number">
+	    </div>
+	
+		<div class="col-auto">
+			<button class="btn btn-md btn-primary mt-1" onclick="addSign()">
+			+Add Sign
+			</button>
+		</div>
+	</div>
+</form>
+
+
+
+<div class="container px-4 p-3 mt-5">
+
+	<ul class="list-group" id="signList">
+
+    <li class="list-group-item" id="list">EMPTY</li>
+
+  </ul>
+
+</div>
+
+
+
+<div class="d-grid gap-1 col-2 mt-4 mx-auto">
+		<button class="btn btn-lg btn-primary mt-1" onclick="generate()">
+		GENERATE
+		</button>
+		<button class="btn btn-lg btn-danger mt-2" onclick="clearAll()">
+		CLEAR ALL
+		</button>
+		 <p class="text-muted mt-2 mx-auto">&copy; JCampanelli 2021</p>
+	</div>
+
+
+
+
+<script>
+
+function addSign(){
+
+	desc[signs] = document.getElementById("inputProduct").value;
+	aisle[signs] = document.getElementById("inputAisle").value;
+	if(document.getElementById("front").checked){
+
+		loc[signs] = "FRONT";
+
+	}
+	else if(document.getElementById("back").checked){
+		loc[signs] = "BACK"
+	}
+
+	if(desc[signs] == ''){
+
+		alert('description required');
+	}
+	else if(aisle[signs]==''){
+
+		alert('aisle number required');
+	}
+	else{
+
+		if(list==1){
+			$("#signList").empty();
+		}
+
+
+    
+    $('#signList').append('<li class="list-group-item" id="list"></li>' );
+    document.getElementById("list").innerHTML =list+') &nbsp &nbsp'+desc[signs]+',&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+aisle[signs]+',&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+loc[signs];
+    document.getElementById("list").setAttribute("id", "list"+signs);
+    signs = signs+1;
+    list = list+1;
+    $('#inputProduct, #inputAisle').val('');
+	}
+
+   
+}
+
+function generate(){
+
+localStorage.setItem("Descriptions", JSON.stringify(desc));
+localStorage.setItem("AisleNumbers", JSON.stringify(aisle));
+localStorage.setItem("Locations", JSON.stringify(loc));
+localStorage.setItem("Signs", signs);
+window.open("template.html");
+
+
+}
+
+function clearAll(){
+
+
+   window.location.reload();
+   
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
+
+
+
+
