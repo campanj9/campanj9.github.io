@@ -1,0 +1,181 @@
+body{
+		height: 11in;
+		width: 8.5in;
+	}
+
+	img{
+
+		height:50px;
+		width:55px; 
+	}
+
+	div.container{
+
+		height: 3.06in;
+		width: 6.44in;
+	}
+
+	div.space{
+
+		height: .44in;
+		width: 6.44in;
+	}
+
+	div.line1{
+
+		height:5px;
+		width:600px;
+		background-color: black;
+		position: relative;
+        left:10px;
+        top:15px;  
+	}
+
+	div.line2{
+
+		height:5px;
+		width:545px;
+		background-color: black;
+		position: relative;
+        left:50px;
+        top: -125px;  
+	}
+
+	div.logo{
+
+		position: relative;
+        left:-5px;
+        top: -113px;
+
+	}
+
+	div.textArea{
+
+		height:200px;
+		width:595px;
+		position: relative;
+        left:15px;
+        top: 5px;
+
+	}
+
+	div.inputBox1{
+
+		height:65px;
+		width:550px;
+		background-color: #ffffd9;
+		border: 2px solid black;
+		position: relative;
+        left:20px;
+        top: -15px;  
+        text-align: center;
+
+	}
+
+	div.bottomText1{
+
+		position: relative;
+        left:-10px;
+        top: -20px;
+        text-align: center;
+
+	}
+
+	div.bottomText2{
+
+		position: relative;
+        left:-70px;
+        top: -10px;
+        text-align: center;
+
+	}
+
+	div.inputBox2{
+
+		height:55px;
+		width:140px;
+		background-color: #ffffd9;
+		border: 2px solid black;
+		position: relative;
+        left:405px;
+        top: -85px;  
+        text-align: center;
+
+	}
+
+	div.textContainer{
+
+		height:59px;
+		width:525px;
+		position: relative;
+        left:11px;
+        top: 9px;  
+        text-align: center;
+
+
+
+	}
+
+
+	h1{
+
+		font-family: verdana;
+		font-style: bold;
+		text-align: center;
+
+	}
+
+	h2{
+
+		font-family: verdana;
+		font-style: bold;
+		text-align: center;
+		color: red;
+		font-size: 40px;
+
+	}
+
+	div.loc{
+
+        position: relative;
+		top: -30px;
+	}
+
+
+	@media print {
+    div.inputBox1 {
+        background-color: #ffffd9  !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
+
+	@media print {
+    div.inputBox2 {
+        background-color: #ffffd9  !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
+
+
+@media print {
+    div.line1{
+        background-color: black !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
+
+@media print {
+    div.line2{
+        background-color: #black !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
+
+ {
+    -webkit-print-color-adjust: exact !important;  
+    color-adjust: exact !important;                 
+}
+
+
+
+</style>
