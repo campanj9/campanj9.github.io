@@ -1,0 +1,79 @@
+@page{
+   size: 11in 8.5in;
+}
+
+div.container{
+  position: relative;
+  width: 1209px;
+  height: 695px;
+}
+
+div.descBox{
+  width: 700px;
+  height: 200px;
+  position: absolute;
+  text-align: center;
+  right: 60px;
+  top: 140px;
+
+ 
+  
+}
+
+div.overBox{
+  width: 700px;
+  height: 40px;
+  text-align: center;
+  right: 60px;
+  top:80px;
+  position: absolute;
+
+
+}
+
+div.priceBox1{
+  width: 400px;
+  height: 200px;
+  top: 450px;
+  left: 660px;
+  position: absolute;
+
+
+
+
+}
+
+div.unitpriceContainer{
+  width: 169px;
+	height: 94px;
+	bottom:170px;
+	left: 452px;
+	position: relative;
+}
+
+div.topUnitPrice{
+  text-align: center;
+  position: absolute;
+  height: 35px;
+  width: 169px;
+  top: 0px;
+}
+
+div.unitPrice{
+  text-align: center;
+	position: absolute;
+	height: 35px;
+	width: 169px;
+	top: 30px;
+}
+
+div.unitMeasure{
+
+	text-align: center;
+	position: absolute;
+	height: 35px;
+	width: 169px;
+	top: 60px;
+
+}
+
