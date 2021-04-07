@@ -211,9 +211,9 @@ function getUnitPrice(){
 		break;
 
 		case 'gallon':
-		unitPriceMeasure = 'per Gallon';
+		unitPriceMeasure = 'per Quart';
 		size = size*128;
-		unitPriceCalc = ((prc/size)*128).toFixed(2);
+		unitPriceCalc = ((prc/size)*32).toFixed(2);
 		break;
 
 		case 'dzn':
